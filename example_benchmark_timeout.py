@@ -40,7 +40,6 @@ OPTIONS = {
     "opt.priority": "lex",  # Possible values: box, lex
 }
 
-#filename: str = os.path.join(BASE_DIR, 'smt2-files', 'Mz2-noAbs',
 filename: str = os.path.join(BASE_DIR, 'examples',
                              'A012-dzn-fzn_v3.smt2')
 
@@ -62,7 +61,6 @@ with create_config(OPTIONS) as cfg:
 
             try:
                 TCF = string_to_term(env, 'obj')
-                # TODO: Any way to add lower und upper bounds?
                 OBJ = msat_make_minimize(env, TCF, signed)
                 assert_objective(env, OBJ)
                 solve(env)
